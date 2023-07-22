@@ -8,11 +8,13 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
-    return Column(
-      children: <Widget>[
-        HeaderWithSearchBox(size: size),
-      ],
+    // it enable scrolling on small device
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          HeaderWithSearchBox(size: size),
+        ],
+      ),
     );
   }
 }
@@ -46,11 +48,8 @@ class HeaderWithSearchBox extends StatelessWidget {
               children: [
                 Text(
                   "Happy to See you",
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineSmall
-                      ?.copyWith(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      color: Colors.white, fontWeight: FontWeight.bold),
                 ),
                 Spacer(),
                 Image.asset("assets/images/logo.png"),
