@@ -41,15 +41,22 @@ class Body extends StatelessWidget {
                             blurRadius: 50,
                             color: kPrimaryColor.withOpacity(0.55)),
                       ]),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        hintText: "Search",
-                        hintStyle: TextStyle(
-                          color: kPrimaryColor.withOpacity(0.5),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: "Search",
+                            hintStyle: TextStyle(
+                              color: kPrimaryColor.withOpacity(0.5),
+                            ),
+                            enabledBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                          ),
                         ),
-                        enabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none
-                        suffixIcon: SvgPicture.asset("assets/icons/search.svg")),
+                      ),
+                      SvgPicture.asset("assets/icons/search.svg")
+                    ],
                   ),
                 ),
               ),
