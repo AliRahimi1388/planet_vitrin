@@ -16,6 +16,12 @@ class Body extends StatelessWidget {
           TitleWithMoreBtn(
             title: "Recomended",
             press: () {},
+          ),
+          Container(
+            width: size.width * 0.4,
+            child: Column(
+              children: [Image.asset("assets/images/image_1.png")],
+            ),
           )
         ],
       ),
