@@ -13,8 +13,9 @@ class Body extends StatelessWidget {
       child: Column(
         children: <Widget>[
           HeaderWithSearchBox(size: size),
-          TitleWithCustomUnderline(
-            text: "Recomended",
+          TitleWithMoreBtn(
+            title: "Recomended",
+            press: () {},
           )
         ],
       ),
@@ -22,37 +23,40 @@ class Body extends StatelessWidget {
   }
 }
 
-class TitleWithCustomUnderline extends StatelessWidget {
-  const TitleWithCustomUnderline({
+class TitleWithMoreBtn extends StatelessWidget {
+  const TitleWithMoreBtn({
     super.key,
-    required this.text,
+    required this.title,
+    required this.press,
   });
 
-  final String text;
+  final String title;
+  final VoidCallback press;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 24,
-      child: Stack(children: [
-        Padding(
-          padding: const EdgeInsets.only(left: kDefaultPaddding / 4),
-          child: Text(
-            text,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddding),
+      child: Row(
+        children: <Widget>[
+          TitleWithCustomUnderline(
+            text: title,
           ),
-        ),
-        Positioned(
-          bottom: 0,
-          left: 0,
-          right: 0,
-          child: Container(
-            margin: EdgeInsets.only(right: kDefaultPaddding / 4),
-            height: 7,
-            color: kPrimaryColor.withOpacity(0.2),
-          ),
-        ),
-      ]),
+          Spacer(),
+          TextButton(
+            onPressed: press,
+            child: Text(
+              "More",
+              style: TextStyle(color: Colors.white),
+            ),
+            style: TextButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                backgroundColor: kPrimaryColor,
+                padding: EdgeInsets.all(0)),
+          )
+        ],
+      ),
     );
   }
 }
