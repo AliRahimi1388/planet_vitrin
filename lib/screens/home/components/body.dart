@@ -16,12 +16,30 @@ class Body extends StatelessWidget {
           child: Stack(
             children: [
               Container(
+                padding: EdgeInsets.only(
+                    left: kDefaultPaddding,
+                    right: kDefaultPaddding,
+                    bottom: 36 + kDefaultPaddding),
                 height: size.height * 0.2 - 27,
                 decoration: BoxDecoration(
                     color: kPrimaryColor,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(36),
                         bottomRight: Radius.circular(36))),
+                child: Row(
+                  children: [
+                    Text(
+                      "Happy to See you",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall
+                          ?.copyWith(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                    Spacer(),
+                    Image.asset("assets/images/logo.png"),
+                  ],
+                ),
               ),
               Positioned(
                 bottom: 0,
@@ -45,6 +63,7 @@ class Body extends StatelessWidget {
                     children: [
                       Expanded(
                         child: TextField(
+                          onChanged: (value) {},
                           decoration: InputDecoration(
                             hintText: "Search",
                             hintStyle: TextStyle(
