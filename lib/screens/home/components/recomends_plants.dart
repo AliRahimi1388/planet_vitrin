@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
+import '../../details/details_screen.dart';
 
 
 
@@ -19,21 +20,27 @@ class RecomendsPlants extends StatelessWidget {
             image: "assets/images/image_1.png",
             title: "Samantha",
             company: "Iran",
-            press: () {},
+            press: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsScreen(),));
+            },
             price: 443,
           ),
           RecomendPlantCard(
             image: "assets/images/image_2.png",
             title: "Samantha",
             company: "Iran",
-            press: () {},
+            press: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsScreen(),));
+            },
             price: 443,
           ),
           RecomendPlantCard(
             image: "assets/images/image_3.png",
             title: "Samantha",
             company: "Iran",
-            press: () {},
+            press: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsScreen(),));
+            },
             price: 443,
           ),
         ],
