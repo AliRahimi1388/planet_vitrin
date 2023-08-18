@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:planet_app/constants.dart';
+import 'package:planet_app/screens/details/components/title_and_price.dart';
+import 'images_and_icons.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -8,76 +9,58 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Column(
-      children: <Widget>[
-        SizedBox(
-          height: size.height * 0.8,
-          child: Row(
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          ImagesAndIcons(size: size),
+          TitleAndPrice(
+            title: "Angelica\n",
+            country: "Russia",
+            price: 440,
+          ),
+          SizedBox(
+            height: kDefaultPaddding,
+          ),
+          Row(
             children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: kDefaultPaddding * 3),
-                  child: Column(
-                    children: <Widget>[
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: IconButton(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: kDefaultPaddding),
-                          icon: SvgPicture.asset("assets/icons/back_arrow.svg"),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
-                      Spacer(),
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: size.height*0.03),
-                        padding: EdgeInsets.all(kDefaultPaddding/2),
-                        height: 62,
-                        width: 62,
-                        decoration: BoxDecoration(
-                            color: kBackgroundColor,
-                            borderRadius: BorderRadius.circular(6),
-                            boxShadow: [
-                              BoxShadow(
-                                offset: Offset(0, 15),
-                                blurRadius: 22,
-                                color: kPrimaryColor.withOpacity(0.22),
-                              ),
-                              BoxShadow(offset: Offset(-15, -15),
-                              blurRadius: 20,
-                              color: Colors.white)
-                            ]),
-                            child: SvgPicture.asset("assets/icons/sun.svg"),
-                      )
-                    ],
-                  ),
-                ),
+              SizedBox(
+                width: size.width / 2,
+                height: 84,
+                child: TextButton(
+                    onPressed: () {},
+                    child: Text("Buy", style: TextStyle(fontSize: 17)),
+                    style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(kPrimaryColor),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(20)),
+                                    side: BorderSide(color: kPrimaryColor))))),
               ),
-              Container(
-                height: size.height * 0.8,
-                width: size.width * 0.75,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(63),
-                        bottomLeft: Radius.circular(63)),
-                    boxShadow: [
-                      BoxShadow(
-                          offset: Offset(0, 10),
-                          blurRadius: 60,
-                          color: kPrimaryColor.withOpacity(0.29)),
-                    ],
-                    image: DecorationImage(
-                        alignment: Alignment.centerLeft,
-                        fit: BoxFit.cover,
-                        image: AssetImage("assets/images/img.png"))),
+              SizedBox(
+                width: size.width / 2,
+                height: 84,
+                child: TextButton(
+                    onPressed: () {},
+                    child: Text("Comments", style: TextStyle(fontSize: 17)),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(20)),
+                                    side: BorderSide(color: kPrimaryColor))))),
               )
             ],
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }
