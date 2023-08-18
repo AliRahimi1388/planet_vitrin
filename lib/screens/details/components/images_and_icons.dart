@@ -39,10 +39,10 @@ class ImagesAndIcons extends StatelessWidget {
                       ),
                     ),
                     Spacer(),
-                    IconCard(icon: "assets/icons/sun.svg"),
-                    IconCard(icon: "assets/icons/icon_2.svg"),
-                    IconCard(icon: "assets/icons/icon_3.svg"),
-                    IconCard(icon: "assets/icons/icon_4.svg")
+                    IconCard(icon: "assets/icons/sun.svg", message: 'نور خورشید',),
+                    IconCard(icon: "assets/icons/icon_2.svg", message: 'دمای بالای ۳۰',),
+                    IconCard(icon: "assets/icons/icon_3.svg", message: 'رطوبتی',),
+                    IconCard(icon: "assets/icons/icon_4.svg", message: 'مناسب فضای آزاد',)
                   ],
                 ),
               ),
